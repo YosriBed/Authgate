@@ -4,8 +4,31 @@
   "description": "API server for authgate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
+    "test": "jest -i --coverage",
+    "test:watch": "jest -i --watchAll"
   },
   "author": "Yosri Bedoui",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "css-clean": "^2.2.5",
+    "express": "^4.17.3",
+    "express-mongo-sanitize": "^2.2.0",
+    "helmet": "^5.0.2",
+    "http-status": "^1.5.0",
+    "joi": "^17.6.0",
+    "moment": "^2.29.1",
+    "mongoose": "^6.2.3",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.7.0",
+    "winston": "^3.6.0"
+  },
+  "devDependencies": {
+    "supertest": "^6.2.2"
+  }
 }
