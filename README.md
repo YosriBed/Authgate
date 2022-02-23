@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Authgate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An authentication interface
 
-## Available Scripts
 
-In the project directory, you can run:
+* Client:  [React.js](https://reactjs.org/)
+* Server: [Node.js](https://nodejs.org/en/)
+* Database: [Mongodb](https://www.mongodb.com/)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### client
+```
+cp .env.example .env #don't forget to change the envrionment variables
+npm install
+npm start
+```
+### server
+```
+cd server/
+cp .env.example .env #don't forget to change the envrionment variables
+docker-compose up -d #a mongodb image
+npm install
+npm start
+```
+# Client
 
-### `npm test`
+## Used Libraries
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Library | Description | Link |
+| --- | --- | --- |
+| React.js | For building UI | https://github.com/facebook/react/ |
+| tailwindcss | CSS Framework | https://github.com/tailwindlabs/tailwindcss |
+| redux-saga | state + action management | https://github.com/reduxjs/redux-toolkit |
+| @redux/toolkit | Toolset for redux | https://github.com/reduxjs/redux-toolkit |
+| @loadable/component | Code splitting (a bit overkill) | https://github.com/gregberge/loadable-components |
+| @redux/toolkit | Redux utility library | https://github.com/reduxjs/redux-toolkit |
+| Formik (+Yup) | Form management | https://github.com/jaredpalmer/formik |
+| Yup | Data validation | https://github.com/jquense/yup |
 
-### `npm run build`
+# Server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Used Libraries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Library | Description | Link |
+| --- | --- | --- |
+| Node.js | APIs | https://expressjs.com/ |
+| Mongoose | Mongodb Object modeling | https://github.com/Automattic/mongoose |
+| Jest | for testing | https://github.com/facebook/jest |
+| Passport-jwt | to manage json web tokens | https://github.com/mikenicholson/passport-jwt |
+| Joi | data validation | https://github.com/sideway/joi |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Contributing
+Pull requests are welcome. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[ISC](https://www.isc.org/licenses/)
