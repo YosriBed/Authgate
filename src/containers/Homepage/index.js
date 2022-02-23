@@ -1,7 +1,12 @@
 import React from "react";
-import Homepage from "./Homepage";
-const index = () => {
-  return <Homepage />;
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import Welcome from "./Welcome";
+
+const Homepage = () => {
+  const user = useSelector((state) => state.user);
+
+  return user ? <Welcome /> : <Navigate replace to='/auth' />;
 };
 
-export default index;
+export default Homepage;

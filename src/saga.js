@@ -1,6 +1,9 @@
-import { takeLatest, all } from "redux-saga/effects";
+import { call, put, takeLatest, all, select } from "redux-saga/effects";
 
 import { actions } from "./slice";
+
+const accessTokenSelector = (state) => state.tokens?.access?.token;
+const refreshTokenSelector = (state) => state.tokens?.refresh.token;
 
 const api = (
   url,
@@ -28,7 +31,18 @@ const api = (
 
 function* login({ payload: { body } }) {
   try {
-    console.log(body);
+    yield put(actions.fetching());
+    const token = yield select(accessTokenSelector);
+    const response = yield call(
+      api,
+      "/api/auth/login",
+      "POST",
+      token,
+      JSON.stringify(body)
+    );
+    yield put(actions.setUser(response.user));
+    yield put(actions.setTokens(response.tokens));
+    yield put(actions.success());
   } catch (error) {
     console.log(error);
   }
@@ -36,7 +50,18 @@ function* login({ payload: { body } }) {
 
 function* register({ payload: { body } }) {
   try {
-    console.log(body);
+    yield put(actions.fetching());
+    const token = yield select(accessTokenSelector);
+    const response = yield call(
+      api,
+      "/api/auth/register",
+      "POST",
+      token,
+      JSON.stringify(body)
+    );
+    yield put(actions.setUser(response.user));
+    yield put(actions.setTokens(response.tokens));
+    yield put(actions.success());
   } catch (error) {
     console.log(error);
   }
@@ -44,7 +69,15 @@ function* register({ payload: { body } }) {
 
 function* logout() {
   try {
-    console.log("logging out...");
+    const token = yield select(refreshTokenSelector);
+    yield call(
+      api,
+      "/api/auth/logout",
+      "POST",
+      null,
+      JSON.stringify({ refreshToken: token })
+    );
+    yield put(actions.clearUserSession());
   } catch (error) {
     console.log(error);
   }

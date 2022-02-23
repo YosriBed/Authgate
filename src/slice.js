@@ -6,6 +6,8 @@ const appSlice = createSlice({
   initialState: {
     user: null,
     tokens: {},
+    success: false,
+    fetching: false,
   },
   reducers: {
     login() {},
@@ -20,6 +22,14 @@ const appSlice = createSlice({
     clearUserSession(state) {
       state.user = null;
       state.tokens = null;
+    },
+    fetching(state) {
+      state.fetching = true;
+      state.success = false;
+    },
+    success(state) {
+      state.fetching = false;
+      state.success = true;
     },
   },
 });
