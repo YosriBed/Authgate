@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@loadable/component": "^5.15.2",
     "@reduxjs/toolkit": "^1.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.6",
+    "prop-types": "^15.8.1",
     "tailwindcss": "^3.0.23"
   }
 }

@@ -7,6 +7,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import mysaga from "./saga";
 import { reducer } from "./slice";
+import Routes from "./components/Routes";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -28,7 +29,7 @@ sagaMiddleware.run(mysaga);
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={<p> Loading ... </p>} persistor={persistor}>
-      <div className='App'>Hello world</div>;
+      <Routes />
     </PersistGate>
   </Provider>
 );
